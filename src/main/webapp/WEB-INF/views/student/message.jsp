@@ -61,7 +61,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
-                        <h1 class="page-header">最新消息</h1>  
+                        <h3 class="page-header">最新消息</h3>  
                     </div>
                 </div>
             </div>

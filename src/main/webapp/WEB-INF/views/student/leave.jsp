@@ -11,6 +11,7 @@
 	<title>Title</title>
 	<link rel="stylesheet" type="text/css" href="${app_path }/menu_static/bootstrap-3.3.4.css">
 	<link rel="stylesheet" href="${app_path }/menu_static//style.css">
+	<link rel="stylesheet" href="${app_path }/my_css/student_leave.css">
 
 </head>
 <body style="">
@@ -61,9 +62,40 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
-                        <h1 class="page-header">在线请假</h1>  
+                        <h3 class="page-header">在线请假</h3>  
                     </div>
                 </div>
+                <form class="leave-form">
+                	<div class="line_lable">
+                		<label class="font">请假类型:</label>
+                	</div>
+                	<div class="line">
+	                	<select class="type">
+	                		<option>病假</option>
+	                		<option>事假</option>
+	                		<option>婚假</option>
+	                		<option>丧假</option>
+	                	</select>
+                	</div>
+                	<div class="line_lable">
+                		<label class="font">请假时间:</label>
+                	</div>
+                	<div class="line">
+                		<input type="date" name="leave_date"/>
+                		<label>至</label>
+                		<input type="date" name="leave_date"/>
+                	</div>
+                	<div class="line_lable">
+                		<label class="font">请假描述:</label>
+                	</div>
+                	<div class="line">                	
+	                	<textarea rows="2" cols="50" class="desc">
+	                	</textarea>
+                	</div>
+                	<div class="submit">
+                		<input type="submit" value="提交申请" class="save_btn"/>
+                	</div>
+				</form>
             </div>
         </div>
         <!-- /#page-content-wrapper -->

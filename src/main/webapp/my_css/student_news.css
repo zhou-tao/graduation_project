@@ -1,0 +1,46 @@
+@charset "UTF-8";
+.header{
+	text-align: center;
+	width:100%;
+	height: 100px;
+}
+
+.header h2{
+	color:#ff3399;
+	font-weight:550;
+	font-size:250%;
+}
+
+.content{
+	line-height: 40px;
+	width: 68%;
+	margin: 0 auto;
+}
+
+.content p{
+	font-size: 120%;
+}
+
+.image{
+	text-align: center;
+}
+
+.content img{
+	margin:0 auto;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.foot{
+	text-align: right;
+}
+
+.more{
+	color: #33ff99;
+	font-size:120%;
+	text-decoration: none;
+}
+
+.more :hover{
+	color: #ff0033;
+}

@@ -49,31 +49,37 @@
 	  <div class="form-group">
 	    <label for="inputEmail3" class="col-sm-2 control-label">姓名</label>
 	    <div class="col-sm-10">
-	      <input type="email" class="form-control" id="tchName" placeholder="name">
+	      <input type="email" class="form-control" id="name" name="name" placeholder="name">
 	    </div>
 	  </div>
 	  <div class="form-group">
 	    <label for="inputEmail3" class="col-sm-2 control-label">教职工号</label>
 	    <div class="col-sm-10">
-	      <input type="email" class="form-control" id="tchId" placeholder="2014013852">
+	      <input type="email" class="form-control" id="number" name="number" placeholder="2014013852">
 	    </div>
 	  </div>
 	  <div class="form-group">
 	     <label for="inputEmail3" class="col-sm-2 control-label">院系</label>
 	    <div class="col-sm-10">
-	      <input type="email" class="form-control" id="department" placeholder="信工学院">
+	      <input type="email" class="form-control" id="department" name="department" placeholder="信工学院">
 	    </div>
 	  </div>
 	  <div class="form-group">
 	     <label for="inputEmail3" class="col-sm-2 control-label">专业</label>
 	    <div class="col-sm-10">
-	      <input type="email" class="form-control" id="profession" placeholder="电子信息工程">
+	      <input type="email" class="form-control" id="profession" name="profession" placeholder="电子信息工程">
 	    </div>
 	  </div>
 	  <div class="form-group">
 	     <label for="inputEmail3" class="col-sm-2 control-label">电话</label>
 	    <div class="col-sm-10">
-	      <input type="email" class="form-control" id="profession" placeholder="18860402758">
+	      <input type="email" class="form-control" id="profession" name="profession" placeholder="18860402758">
+	    </div>
+	  </div>
+	  <div class="form-group">
+	     <label for="inputEmail3" class="col-sm-2 control-label">密码</label>
+	    <div class="col-sm-10">
+	      <input type="password" class="form-control" id="password" name="password">
 	    </div>
 	  </div>
 	</form>
@@ -100,37 +106,37 @@
 	  <div class="form-group">
 	    <label for="inputEmail3" class="col-sm-2 control-label">姓名</label>
 	    <div class="col-sm-10">
-	      <input type="email" class="form-control" id="stuName" placeholder="Tom">
+	      <input type="email" class="form-control" id="name" name="name" placeholder="Tom">
 	    </div>
 	  </div>
 	  <div class="form-group">
 	    <label for="inputEmail3" class="col-sm-2 control-label">学号</label>
 	    <div class="col-sm-10">
-	      <input type="email" class="form-control" id="stuId" placeholder="2014013852">
+	      <input type="email" class="form-control" id="number" name="number" placeholder="2014013852">
 	    </div>
 	  </div>
 	  <div class="form-group">
 	     <label for="inputEmail3" class="col-sm-2 control-label">院系</label>
 	    <div class="col-sm-10">
-	      <input type="email" class="form-control" id="department" placeholder="信工学院">
+	      <input type="email" class="form-control" id="department" name="department" placeholder="信工学院">
 	    </div>
 	  </div>
 	  <div class="form-group">
 	     <label for="inputEmail3" class="col-sm-2 control-label">专业</label>
 	    <div class="col-sm-10">
-	      <input type="email" class="form-control" id="profession" placeholder="电子信息工程">
+	      <input type="email" class="form-control" id="profession" name="profession" placeholder="电子信息工程">
 	    </div>
 	  </div>
 	  <div class="form-group">
 	     <label for="inputEmail3" class="col-sm-2 control-label">班级</label>
 	    <div class="col-sm-10">
-	      <input type="email" class="form-control" id="class" placeholder="1">
+	      <input type="email" class="form-control" id="classNum" placeholder="1" name="classNum">
 	    </div>
 	  </div>
-	   <div class="form-group">
-	     <label for="inputEmail3" class="col-sm-2 control-label">辅导员</label>
+	  <div class="form-group">
+	     <label for="inputEmail3" class="col-sm-2 control-label">密码</label>
 	    <div class="col-sm-10">
-	      <input type="email" class="form-control" id="teacher" placeholder="Mike">
+	      <input type="password" class="form-control" id="password" name="password">
 	    </div>
 	  </div>
 	</form>

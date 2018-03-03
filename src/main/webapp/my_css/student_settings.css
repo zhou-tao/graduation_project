@@ -1,0 +1,57 @@
+@charset "UTF-8";
+.blank{
+	height: 70px;
+	line-height: 70px;
+	width:100%;
+	text-align: center; 		
+}
+
+input{
+	width:500px;
+	height: 40px;
+	border-radius: 10px;
+	border-color: #009999;
+	font-size: 140%;
+}
+
+.title{
+	height: 40px;
+	line-height: 40px;
+	width:100%;
+}
+
+.la{
+	font-size: 150%;
+	font-weight: 400;
+	color:#33ffff;
+	margin-left: 26%;
+}
+
+.last{
+	height: 50px;
+	line-height: 50px;
+	width:100%;
+	text-align: center; 
+	margin-top: 20px;
+}
+
+#confirm{
+	background-color: blue;
+	color: white;
+	height: 40px;
+	line-height: 40px;
+	font-size: 120%;
+}
+
+.error{
+	width:100%;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+}
+
+#msg{
+	font-size: 150%;
+	color:red;
+	font-weight: 400;
+}

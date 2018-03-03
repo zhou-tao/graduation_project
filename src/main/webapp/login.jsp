@@ -26,15 +26,15 @@
 <body>
 
 	<div class="page-container">
-		<h1>Login</h1>
+		<h1>考勤系统</h1>
 		<form action="${app_path}/login" method="post">
-			<input type="text" name="username" class="username"
-				placeholder="Username">
+			<input type="text" name="number" class="username"
+				placeholder="Number">
 			<div id="name_error"></div>
 			<input type="password" name="password" class="password"
 				placeholder="Password">
 			<div id="pwd_error"></div>
-			<button type="submit" id="login_btn">Sign me in</button>
+			<button type="submit" id="login_btn">登陆</button>
 			<div class="error">
 				<span>+</span>
 			</div>
@@ -54,38 +54,52 @@
 	<script src="assets/js/scripts.js"></script>
 
 	<script type="text/javascript">
+	
 		var code = 100;
 
-		$("#login_btn").click(function() {
-			validate_login();
-			if (code == 200) {
-				return false;
-			}
-		});
-
 		$(".username").change(function() {
-					$("#name_error span").empty();
-					var username = $(".username").val();
-					var str = username.substr(username.length-8,username.length-1);
-					console.log(str);
-					var a = new Array("@student","@teacher","@manager");
-					if ($.inArray(str,a) == -1) {
-						$("#name_error").append(
-								$("<span></span>").append("登录名错啦~"));
+			$("#name_error span").empty();
+			var number = $(".username").val();
+			$.ajax({
+				url:"${app_path}/loginNumber",
+				data:"number="+number,
+				type:"GET",
+				success:function(res){
+					var msg = res.extend.errorNumMsg;
+					if(msg != null){
+						$("#name_error").append($("<span></span>").append(msg));
 						code = 200;
+					}else{
+						code = 100;
 					}
-			});
+				}
+			});		
+		});
 		
 		$(".password").change(function(){
 			$("#pwd_error span").empty();
+			var number = $(".username").val();
 			var password = $(".password").val();
-			console.log(password);
-			if (password != "123456") {
-				$("#pwd_error").append(
-						$("<span></span>").append("密码出错啦~"));
-				code = 200;
-			}
+			$.ajax({
+				url:"${app_path}/loginPassword",
+				data:"number="+number+"&password="+password,
+				type:"GET",
+				success:function(res){
+					var msg = res.extend.errorPassMsg;
+					if(msg != null){
+						$("#pwd_error").append($("<span></span>").append(msg));
+						code = 200;
+					}else{
+						code = 100;
+					}
+				}
+			})
 		});
+		
+		$("#login_btn").click(function(){
+			if(code == 200)
+				return false;
+		})
 	</script>
 
 </body>

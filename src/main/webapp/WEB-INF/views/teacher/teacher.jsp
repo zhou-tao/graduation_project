@@ -26,7 +26,7 @@
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container"> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span
-                    class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </a><a class="brand" href="index.html">Teacher Online </a>
+                    class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </a><a class="brand" href="#">Teacher Online </a>
       <div class="nav-collapse">
         <ul class="nav pull-right">
           <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
@@ -52,11 +52,11 @@
   <div class="subnavbar-inner">
     <div class="container">
       <ul class="mainnav">
-        <li class="active"><a href="index.html"><i class="icon-dashboard"></i><span>个人首页</span> </a> </li>
-        <li><a href="#"><i class="icon-list-alt"></i><span>邮箱收件</span> </a> </li>
-        <li><a href="#"><i class="icon-facetime-video"></i><span>通报消息</span> </a></li>
-        <li><a href="#"><i class="icon-bar-chart"></i><span>出勤情况</span> </a> </li>
-        <li><a href="#"><i class="icon-code"></i><span>校园相关</span> </a> </li>
+        <li class="active"><a href="#"><i class="icon-dashboard"></i><span>个人首页</span> </a> </li>
+        <li><a href="${app_path }/teacher/email"><i class="icon-list-alt"></i><span>邮箱收件</span> </a> </li>
+        <li><a href="${app_path }/teacher/message"><i class="icon-facetime-video"></i><span>通报消息</span> </a></li>
+        <li><a href="${app_path }/teacher/record"><i class="icon-bar-chart"></i><span>出勤情况</span> </a> </li>
+        <li><a href="${app_path }/teacher/news"><i class="icon-code"></i><span>校园相关</span> </a> </li>
       </ul>
     </div>
     <!-- /container --> 

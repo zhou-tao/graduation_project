@@ -10,8 +10,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Title</title>
 	<link rel="stylesheet" type="text/css" href="${app_path }/menu_static/bootstrap-3.3.4.css">
-	<link rel="stylesheet" href="${app_path }/menu_static//style.css">
-
+	<link rel="stylesheet" href="${app_path }/menu_static/style.css">
+	<link rel="stylesheet" type="text/css" href="${app_path }/my_css/student_record.css">
 </head>
 <body style="">
 	
@@ -61,8 +61,72 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
-                        <h1 class="page-header"> 出勤记录 </h1>  
+                        <h3 class="page-header"> 出勤记录 </h3>  
                     </div>
+                </div>
+                <div class="row">
+                	<div class="col-md-1 col-md-offset-7">
+                		<button type="button" class="btn btn-success">实到</button>
+                	</div>
+                	<div class="col-md-1">
+                		<button type="button" class="btn btn-danger">缺勤</button>
+                	</div>
+                	<div class="col-md-1">
+                		<button type="button" class="btn btn-warning">请假</button>
+                	</div>
+                </div>
+                <div class="row">
+                	<div>
+                		<p> </p>
+                	</div>
+                </div>
+                <div class="content">
+                	<table class="record">
+                		<thead>
+                			<tr>
+                				<th></th>
+                				<th>周一</th>
+                				<th>周二</th>
+                				<th>周三</th>
+                				<th>周四</th>
+                				<th>周五</th>
+                			</tr>
+                		</thead>
+                		<tbody>
+                			<tr>
+                				<th>第1~2节</th>
+                				<td></td>
+                				<td></td>
+                				<td></td>
+                				<td></td>
+                				<td></td>
+                			</tr>
+                			<tr>
+                				<th>第3~4节</th>
+                				<td></td>
+                				<td></td>
+                				<td></td>
+                				<td></td>
+                				<td></td>
+                			</tr>
+                			<tr>
+                				<th>第5~6节</th>
+                				<td></td>
+                				<td></td>
+                				<td></td>
+                				<td></td>
+                				<td></td>
+                			</tr>
+                			<tr>
+                				<th>第7~8节</th>
+                				<td></td>
+                				<td></td>
+                				<td></td>
+                				<td></td>
+                				<td></td>
+                			</tr>
+                		</tbody>
+                	</table>
                 </div>
             </div>
         </div>

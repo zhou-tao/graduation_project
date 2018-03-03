@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wxxy.dao.TeacherDao">
+
+	<resultMap type="com.wxxy.entities.Teacher" id="res_teacher">
+		<result column="class" property="classNum"/>
+	</resultMap>
+	
+	<parameterMap type="com.wxxy.entities.Teacher" id="param_teacher">
+		<parameter property="classNum" resultMap="res_teacher"/>
+	</parameterMap>
+	
+	<!-- public Teacher findById(int id); -->
+	<select id="findById" resultMap="res_teacher" parameterType="java.lang.Integer">
+		select * from teacher where id = #{id}
+	</select>
+	
+	<!-- public String getPassword(int number); -->
+	<select id="getPassword" resultType="java.lang.String" parameterType="java.lang.Integer">
+		select password from teacher where number = #{number}
+	</select>
+	
+	<!-- public String findNameByNum(int number); -->
+	<select id="findNameByNum" resultType="java.lang.String" parameterType="java.lang.Integer">
+		select name from teacher where number = #{number}
+	</select>
+	
+	<!-- public int findCountByNumber(int number); -->
+	<select id="findCountByNumber" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+		select count(*) from teacher where number = #{number}
+	</select>
+	
+	<!-- public void add(Teacher teacher); -->
+	<insert id="add" parameterMap="param_teacher">
+		insert into teacher(name,number,class,course,tel,password) 
+		values(#{name},#{number},#{classNum},#{course},#{tel},#{password})
+	</insert>
+	
+	<!-- public void deleteById(int id); -->
+	<delete id="deleteById" parameterType="java.lang.Integer">
+		delete from teacher where id = #{id}
+	</delete>
+	
+	<!-- public void update(Teacher teacher); -->
+	<update id="update" parameterMap="param_teacher">
+		update teacher
+		<set>
+			<if test="name != null">
+				name = #{name},
+			</if>
+			<if test="number > 0">
+				number = #{number},
+			</if>
+			<if test="classNum > 0">
+				class = #{classNum},
+			</if>
+			<if test="course != null">
+				course = #{course},
+			</if>
+			<if test="tel != null">
+				tel = #{tel},
+			</if>
+			<if test="password != null">
+				password = #{password}
+			</if>
+		</set>
+	</update>
+	
+</mapper>

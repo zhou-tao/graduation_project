@@ -11,6 +11,7 @@
 	<title>Title</title>
 	<link rel="stylesheet" type="text/css" href="${app_path }/menu_static/bootstrap-3.3.4.css">
 	<link rel="stylesheet" href="${app_path }/menu_static//style.css">
+	<link rel="stylesheet" type="text/css" href="${app_path}/my_css/student_home.css">
 
 </head>
 <body style="">
@@ -62,8 +63,41 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
-                        <h1 class="page-header">个人首页</h1>  
+                        <h3 class="page-header">个人首页</h3>  
                     </div>
+                </div>
+                <div class="row">
+                	<div class="col-md-4 col-md-offset-2">
+                		<h2>学籍信息表</h2>
+                	</div>
+                </div>
+                <div class="row">
+                	<div class="col-md-8 col-md-offset-2">
+                		<table class="my_table">
+               				<tr class="single_tr">
+               					<th>姓名</th>
+               					<td>
+               						${username }
+               					</td>
+               				</tr>
+               				<tr class="double_tr">
+               					<th>学号</th>
+               					<td id='number'></td>
+               				</tr>
+               				<tr class="single_tr">
+               					<th>专业</th>
+               					<td id='profession'></td>
+               				</tr>
+               				<tr class="double_tr">
+               					<th>班级</th>
+               					<td id='classNum'></td>
+               				</tr>
+               				<tr class="single_tr">
+               					<th>院系</th>
+               					<td id='department'></td>
+               				</tr>
+                		</table>
+                	</div>
                 </div>
             </div>
             </section>
@@ -104,6 +138,29 @@
 		        $('#wrapper').toggleClass('toggled');
 		  });  
 		});
+		
+		$(function(){
+			var name = "${username}";
+			$.ajax({
+				url:"${app_path}/student_info",
+				data:"name="+name,
+				success:function(res){
+					add_student_info(res);
+				}
+			});
+		})
+		
+		function add_student_info(res){
+			var number = res.extend.info.number;
+			console.log(number);
+			var classNum = res.extend.info.classNum;
+			var profession = res.extend.info.profession;
+			var department = res.extend.info.department;
+			$("#number").append(number);
+			$("#profession").append(profession);
+			$("#classNum").append(classNum);
+			$("#department").append(department);
+		}
 		
 	</script>
 

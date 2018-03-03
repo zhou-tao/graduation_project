@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wxxy.dao.ManagerDao">
+	
+	<!-- public String getPassword(int number); -->
+	<select id="getPassword" resultType="java.lang.String" parameterType="java.lang.Integer">
+		select password from manager where number = #{number}
+	</select>
+	
+	<!-- public String findNameByNum(int number); -->
+	<select id="findNameByNum" resultType="java.lang.String" parameterType="java.lang.Integer">
+		select name from manager where number = #{number}
+	</select>
+	
+	<!-- public int findCountByNumber(int number); -->
+	<select id="findCountByNumber" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+		select count(*) from manager where number = #{number}
+	</select>
+	
+</mapper>

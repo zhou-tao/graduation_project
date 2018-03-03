@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wxxy.dao.StudentDao">
+	
+	<resultMap type="com.wxxy.entities.Student" id="res_student">
+		<result column="class" property="classNum"/>
+	</resultMap>
+	
+	<parameterMap type="com.wxxy.entities.Student" id="param_student">
+		<parameter property="classNum" resultMap="res_student"/>
+	</parameterMap>
+	
+	<!-- public Student findById(int id); -->
+	<select id="findById" resultMap="res_student">
+		select * from student
+	</select>	
+	
+	<!-- public String getPassword(int number); -->
+	<select id="getPassword" resultType="java.lang.String" parameterType="java.lang.Integer">
+		select password from student where number = #{number}
+	</select>
+	
+	<!-- public String findNameByNum(int number); -->
+	<select id="findNameByNum" resultType="java.lang.String" parameterType="java.lang.Integer">
+		select name from student where number = #{number}
+	</select>
+	
+	<!-- public int findCountByNumber(int number); -->
+	<select id="findCountByNumber" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+		select count(*) from student where number = #{number}
+	</select>
+	
+	<!-- public Student findByName(String name); -->
+	<select id="findByName" resultMap="res_student" parameterType="java.lang.String">
+		select * from student where name = #{name}
+	</select>
+	
+	<!-- public String findPwdByName(String name); -->
+	<select id="findPwdByName" parameterType="java.lang.String" resultType="java.lang.String">
+		select password from student where name = #{name}
+	</select>
+	
+	<!-- public void add(Student student); -->
+	<insert id="add" parameterMap="param_student">
+		insert into student(name,number,department,profession,class,password) 
+		values(#{name},#{number},#{department},#{profession},#{classNum},#{password})
+	</insert>
+	
+	
+	<!-- public void deleteById(int id); -->
+	<delete id="deleteById" parameterType="java.lang.Integer">
+		delete from student where id = #{id}
+	</delete>
+	
+	<!-- public void update(Student student); -->
+	<update id="update" parameterMap="param_student">
+		update student
+		<trim prefix="set" suffixOverrides=",">
+			<if test="name != null">
+				name = #{name},
+			</if>
+			<if test="number > 0">
+				number = #{number},
+			</if>
+			<if test="department != null">
+				department = #{department},
+			</if>
+			<if test="profession != null">
+				profession = #{profession},
+			</if>
+			<if test="classNum > 0">
+				class = #{classNum},
+			</if>
+			<if test="password != null">
+				password = #{password},
+			</if>
+		</trim>
+		<where>
+			id = #{id}
+		</where>
+	</update>
+	
+</mapper>

@@ -11,6 +11,7 @@
 	<title>Title</title>
 	<link rel="stylesheet" type="text/css" href="${app_path }/menu_static/bootstrap-3.3.4.css">
 	<link rel="stylesheet" href="${app_path }/menu_static//style.css">
+	<link rel="stylesheet" type="text/css" href="${app_path }/my_css/student_settings.css">
 
 </head>
 <body style="">
@@ -61,9 +62,33 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
-                        <h1 class="page-header">用户设置</h1>  
+                        <h3 class="page-header">修改密码</h3>  
                     </div>
                 </div>
+	                <div class="title">
+	               		<label class="la">原密码：</label>
+	               	</div>
+	               	<div class="blank">
+	               		<input type="password" id='old'/>
+	               	</div>
+	               	<div class="title">
+	               		<label class="la">新密码：</label>
+	               	</div>
+	               	<div class="blank">
+	               		<input type="password" name="password" id="new1"/>
+	               	</div>
+	               	<div class="title">
+	               		<label class="la">再次输入：</label>
+	               	</div>
+	               	<div class="blank">
+	               		<input type="password" name="password" id="new2"/>
+	               	</div>
+	               	<div class="error">
+	               		<span id="msg"></span>
+	               	</div>
+	               	<div class="last">	
+	               		<input type="submit" value="保存" id="confirm"/>
+	                </div>
             </div>
         </div>
         <!-- /#page-content-wrapper -->
@@ -102,6 +127,38 @@
 		        $('#wrapper').toggleClass('toggled');
 		  });  
 		});
+		
+		$("#confirm").click(function(){
+			var oldPwd = $("#old").val();
+			var new1Pwd = $("#new1").val();
+			var new2Pwd = $("#new2").val();
+			var name = "${username}";
+			console.log(name);
+			if(new1Pwd != new2Pwd){
+				$("#msg").empty();
+				$("#msg").append("更替的密码两次输入不一致")
+				return false;
+			}
+			$.ajax({
+				url:"${app_path}/changePwd",
+				data:"oldPwd="+oldPwd+"&name="+name+"&newPwd="+new1Pwd,
+				success:function(res){
+					console.log(res);
+					if(res.extend.msg != null){
+						$("#msg").empty();
+						$("#msg").append(res.extend.msg);
+						return false;
+					}else{
+						$("#msg").empty();
+						$("#old").val("");
+						$("#new1").val("");
+						$("#new2").val("");
+						$("#msg").append("修改成功！");
+					}
+				}
+			})
+		});	
+		
 	</script>
 
 </body></html>
