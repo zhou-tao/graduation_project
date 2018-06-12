@@ -1,14 +1,18 @@
 package com.wxxy.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.wxxy.entities.Attendance;
+import com.wxxy.entities.Leave;
 import com.wxxy.entities.Message;
 import com.wxxy.entities.Student;
 import com.wxxy.service.StudentService;
@@ -72,6 +76,28 @@ public class StudentController {
 		}else {
 			return Message.success().add("msg", "–ﬁ∏ƒ ß∞‹,‘≠√‹¬ÎÃÓ–¥¥ÌŒÛ! «Î÷ÿ–¬ ‰»Î");
 		}
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/student/sendLeave",method=RequestMethod.POST)
+	public Message sendLeave(Leave leave) {
+		System.out.println(leave);
+		studentService.sendLeave(leave);
+		return Message.success();
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/findAdReocrd",method=RequestMethod.POST)
+	public Message findAdRecord(@RequestParam("number")int number) {
+		List<Attendance> AdRecord = studentService.findAdRecord(number);
+		return Message.success().add("list", AdRecord);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/findCheckedLeave",method=RequestMethod.POST)
+	public Message findCheckedLeave(@RequestParam("number")int number) {
+		List<Leave> list = studentService.findCheckedList(number);
+		return Message.success().add("list", list);
 	}
 	
 }

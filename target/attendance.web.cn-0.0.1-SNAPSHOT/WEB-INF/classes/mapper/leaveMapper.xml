@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wxxy.dao.LeaveDao">
+	
+	<!-- public void sendLeave(Leave leave); -->
+	<insert id="sendLeave" parameterType="com.wxxy.entities.Leave">
+		insert into stuLeave(number,name,leaveType,startTime,endTime,leaveDesc,sendName,status) 
+		values(#{number},#{name},#{leaveType},#{startTime},#{endTime},#{leaveDesc},#{sendName},#{status})
+	</insert>
+	
+	<!-- public List<Leave> findAll(); -->
+	<select id="findAll" resultType="com.wxxy.entities.Leave">
+		select * from stuLeave where status = 0
+	</select>
+	
+	<!-- public List<Leave> findCheckedList(int number); -->
+	<select id="findCheckedList" resultType="com.wxxy.entities.Leave">
+		select * from stuLeave where number = #{number}
+	</select>
+	
+	<!-- public void updateLeaveStatus(String status,int id); -->
+	<update id="updateLeaveStatus">
+		update stuLeave
+		<trim prefix="set" suffixOverrides=",">
+			<if test="status != null">
+				status = #{status},
+			</if>
+		</trim>
+		<where>
+			id = #{id}
+		</where>
+	</update>
+	
+</mapper>

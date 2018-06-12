@@ -12,6 +12,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<parameter property="classNum" resultMap="res_teacher"/>
 	</parameterMap>
 	
+	<!-- public List<Teacher> getAllTeacher(); -->
+	<select id="getAllTeacher" resultMap="res_teacher">
+		select * from teacher
+	</select>
+	
 	<!-- public Teacher findById(int id); -->
 	<select id="findById" resultMap="res_teacher" parameterType="java.lang.Integer">
 		select * from teacher where id = #{id}
@@ -34,8 +39,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- public void add(Teacher teacher); -->
 	<insert id="add" parameterMap="param_teacher">
-		insert into teacher(name,number,class,course,tel,password) 
-		values(#{name},#{number},#{classNum},#{course},#{tel},#{password})
+		insert into teacher(name,number,profession,class,course,tel,password) 
+		values(#{name},#{number},#{profession},#{classNum},#{course},#{tel},#{password})
 	</insert>
 	
 	<!-- public void deleteById(int id); -->
@@ -46,12 +51,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- public void update(Teacher teacher); -->
 	<update id="update" parameterMap="param_teacher">
 		update teacher
-		<set>
+		<trim prefix="set" suffixOverrides=",">
 			<if test="name != null">
 				name = #{name},
 			</if>
-			<if test="number > 0">
-				number = #{number},
+			<if test="profession != null">
+				profession = #{profession},
 			</if>
 			<if test="classNum > 0">
 				class = #{classNum},
@@ -63,9 +68,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				tel = #{tel},
 			</if>
 			<if test="password != null">
-				password = #{password}
+				password = #{password},
 			</if>
-		</set>
+		</trim>
+		<where>
+			number = #{number}
+		</where>
 	</update>
 	
 </mapper>

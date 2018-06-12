@@ -7,5 +7,5 @@ public interface ManagerDao {
 	public String findNameByNum(int number);
 	
 	public int findCountByNumber(int number);
-
+	
 }

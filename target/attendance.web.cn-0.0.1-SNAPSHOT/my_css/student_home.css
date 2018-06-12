@@ -1,0 +1,54 @@
+@charset "UTF-8";
+.my_table{
+	border-collapse:collapse;
+	margin:35px 0 0 0;
+	height:350px;
+	width:100%;
+	border:3px solid #ccffcc;
+}
+
+.single_tr{
+	width:100%;
+	background-color:#99cccc;
+}
+
+.double_tr{
+	width:100%;
+	background-color:#0099ff;
+	border-top:2px solid white;
+	border-bottom:2px solid white;
+}
+
+.single_tr :hover{
+	background-color:#99ff33;
+}
+
+.double_tr :hover{
+	background-color:#9900cc;
+}
+
+.single_tr th{
+	font-size:160%;
+	color:#0099ff;
+	text-align:center;
+	border-right:2px solid white;
+}
+
+.double_tr th{
+	font-size:160%;
+	color:#99cccc;
+	text-align:center;
+	border-right:2px solid white;
+}
+
+.single_tr td{
+	font-size:160%;
+	color:#0099ff;
+	text-align:center;	
+}
+
+.double_tr td{
+	font-size:160%;
+	color:#99cccc;
+	text-align:center;
+}

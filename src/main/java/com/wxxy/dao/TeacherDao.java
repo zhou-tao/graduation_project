@@ -1,8 +1,12 @@
 package com.wxxy.dao;
 
+import java.util.List;
+
 import com.wxxy.entities.Teacher;
 
 public interface TeacherDao {
+	
+	public List<Teacher> getAllTeacher();
 	
 	public Teacher findById(int id);
 	

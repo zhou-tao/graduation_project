@@ -5,10 +5,13 @@ import java.util.Map;
 
 public class Message {
 	
+	//状态码
 	private int code;
 	
+	//状态信息
 	private String msg;
 	
+	//数据区
 	private Map<String, Object> extend = new HashMap<>();
 
 	public static Message success() {

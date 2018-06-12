@@ -1,10 +1,16 @@
 package com.wxxy.dao;
 
+import java.util.List;
+
 import com.wxxy.entities.Student;
 
 public interface StudentDao {
 	
+	public List<Student> findAllStudent();
+	
 	public void add(Student student);
+	
+	public Student findByNumber(int number);
 	
 	public Student findById(int id);
 	

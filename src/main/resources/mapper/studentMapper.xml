@@ -12,9 +12,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<parameter property="classNum" resultMap="res_student"/>
 	</parameterMap>
 	
+	<!-- public List<Student> findAllStudent(); -->
+	<select id="findAllStudent" resultMap="res_student">
+		select * from student
+	</select>
+	
+	<!-- public Student findByNumber(int number); -->
+	<select id="findByNumber" resultMap="res_student">
+		select * from student where number = #{number}
+	</select>	
+	
 	<!-- public Student findById(int id); -->
 	<select id="findById" resultMap="res_student">
-		select * from student
+		select * from student where id = #{id}
 	</select>	
 	
 	<!-- public String getPassword(int number); -->
@@ -61,9 +71,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="name != null">
 				name = #{name},
 			</if>
-			<if test="number > 0">
-				number = #{number},
-			</if>
 			<if test="department != null">
 				department = #{department},
 			</if>
@@ -78,7 +85,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</if>
 		</trim>
 		<where>
-			id = #{id}
+			number = #{number}
 		</where>
 	</update>
 	

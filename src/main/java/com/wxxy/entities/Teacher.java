@@ -8,6 +8,8 @@ public class Teacher {
 	
 	private int number;
 	
+	private String profession;
+	
 	private int classNum;
 	
 	private String course;
@@ -72,14 +74,12 @@ public class Teacher {
 		this.password = password;
 	}
 
-	public Teacher(String name, int number, int classNum, String course, String tel, String password) {
-		super();
-		this.name = name;
-		this.number = number;
-		this.classNum = classNum;
-		this.course = course;
-		this.tel = tel;
-		this.password = password;
+	public String getProfession() {
+		return profession;
+	}
+
+	public void setProfession(String profession) {
+		this.profession = profession;
 	}
 
 	public Teacher() {
@@ -88,8 +88,21 @@ public class Teacher {
 
 	@Override
 	public String toString() {
-		return "Teacher [id=" + id + ", name=" + name + ", number=" + number + ", classNum=" + classNum + ", course="
-				+ course + ", tel=" + tel + ", password=" + password + "]";
+		return "Teacher [id=" + id + ", name=" + name + ", number=" + number + ", profession=" + profession
+				+ ", classNum=" + classNum + ", course=" + course + ", tel=" + tel + ", password=" + password + "]";
 	}
 
+	public Teacher(int id, String name, int number, String profession, int classNum, String course, String tel,
+			String password) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.number = number;
+		this.profession = profession;
+		this.classNum = classNum;
+		this.course = course;
+		this.tel = tel;
+		this.password = password;
+	}
+	
 }

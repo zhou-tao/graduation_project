@@ -32,6 +32,7 @@ public class LoginController {
 		}
 		if(loginService.loginPass(number).equals(password)) {
 			session.setAttribute("username", loginService.loginName(number));
+			session.setAttribute("number", number);
 			if(loginService.loginType(number).equals("student")) {
 				return "student/home";
 			}else if(loginService.loginType(number).equals("teacher")) {
@@ -50,7 +51,7 @@ public class LoginController {
 		logger.debug("开始验证用户名是否存在...");
 		if(loginService.loginExits(number) == false) {
 			logger.debug("用户名不存在...");
-			return Message.success().add("errorNumMsg", "用户名不存在哦~");
+			return Message.failed().add("errorNumMsg", "用户名不存在哦~");
 		}
 		logger.debug("用户名输入正确...");
 		return Message.success();
